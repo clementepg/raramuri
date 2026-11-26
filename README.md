@@ -22,4 +22,6 @@ See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for complete book, collabor
 
 ## Included
 
-Three original fictional family illustrations, working scene selection, source references, caregiver guidance dialogs, native water audio and the initial six-page visual mockup PDF. Application assets are cached for offline use after loading; the PDF is not precached. No child accounts, analytics or microphone recording.
+The family view opens directly on Agua, the scene with a speaker recording. It shows one picture, the Rarámuri word, its Spanish meaning, an Escuchar button and an Otra imagen button. Another tap cycles to the next scene. Scenes without recordings say Todavía sin audio. Short parent guidance is behind Ayuda; sources, credits and the original PDF are inside a collapsed section there.
+
+Three original fictional family illustrations, source references, native water audio and the initial six-page visual mockup PDF are included. Application assets are cached for offline use after loading; the PDF is not precached. No child accounts, analytics or microphone recording.

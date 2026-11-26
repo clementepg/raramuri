@@ -1,10 +1,14 @@
-const CACHE = 'raramuri-family-prototype-v3';
-const ASSETS = ['./', './index.html', './styles.css', './app.js', './icon.svg', './manifest.webmanifest', './greeting.png', './play-ball.png', './cup.png', './water-choguita.wav'];
+const CACHE = 'raramuri-family-prototype-v4';
+const ASSETS = ['./', './index.html', './styles.css?v=4', './app.js?v=4', './icon.svg',
+  './manifest.webmanifest', './greeting.png', './play-ball.png', './cup.png', './water-choguita.wav'];
+
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', event => {
-  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('raramuri-family-prototype-') && key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim()));
+  event.waitUntil(caches.keys().then(keys => Promise.all(keys
+    .filter(key => key.startsWith('raramuri-family-prototype-') && key !== CACHE)
+    .map(key => caches.delete(key)))).then(() => self.clients.claim()));
 });
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
@@ -14,7 +18,10 @@ self.addEventListener('fetch', event => {
     return;
   }
   event.respondWith(fetch(event.request).then(response => {
-    if (response.ok) { const copy = response.clone(); caches.open(CACHE).then(cache => cache.put(event.request, copy)); }
+    if (response.ok) {
+      const copy = response.clone();
+      event.waitUntil(caches.open(CACHE).then(cache => cache.put(event.request, copy)));
+    }
     return response;
   }).catch(() => caches.match(event.request)));
 });
