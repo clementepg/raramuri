@@ -128,6 +128,29 @@ body:has(dialog[open]) { overflow: hidden; }
 .vocabulary-guide .guide-example { margin-top: 6px; color: #53675b; }
 .vocabulary-guide .guide-group p:first-of-type { font-size: 1.1rem; line-height: 1.8; margin-top: 0; }
 .vocabulary-guide .guide-status { padding-top: 16px; border-top: 1px solid #dedfce; font-size: .94rem; }
+.topic-picker { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; font-size: .94rem; }
+.topic-picker span { flex: none; }
+.topic-picker select { min-width: 0; max-width: 70%; flex: 1; min-height: 44px; border: 1px solid #b6c7bc; border-radius: 12px; padding: 8px 12px; background: var(--paper); color: var(--ink); font: inherit; }
+.word-cell h1.word-pending { font-size: 1.15rem; line-height: 1.5; color: #53675b; font-weight: 400; }
+.device-voice-option { display: flex; align-items: start; gap: 12px; font-size: 1rem; line-height: 1.5; }
+.device-voice-option input { flex: none; width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--teal); }
+.help-dialog .help-note { font-size: .94rem; line-height: 1.5; color: #53675b; }
+.family-voice-button { width: 100%; min-height: 48px; padding: 12px 16px; border: 0; border-radius: 14px; background: #e0eee6; font-size: 1rem; }
+.why-language { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #dedfce; }
+.why-language h3:first-child { margin-top: 18px; }
+.voice-dialog .record-concept { font-size: 1.4rem; font-weight: 600; margin-bottom: 4px; }
+.voice-dialog .help-heading { position: sticky; top: 0; z-index: 1; background: var(--paper); }
+.voice-text-label, .voice-import-label { display: block; margin: 18px 0 8px; font-size: 1rem; }
+#voice-text { width: 100%; min-height: 48px; padding: 10px 12px; font: inherit; color: var(--ink); border: 1px solid #b6c7bc; border-radius: 12px; }
+.record-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+.record-actions button, .voice-backup-options button { min-height: 48px; padding: 10px 14px; border: 1px solid #b6c7bc; border-radius: 12px; background: var(--paper); font-size: 1rem; }
+#voice-start { background: var(--yellow); border: 0; }
+.voice-dialog audio { width: 100%; margin: 8px 0; }
+.voice-dialog button:disabled { opacity: .55; cursor: default; }
+.voice-backup-options button { display: block; width: 100%; margin-top: 12px; }
+.voice-backup-options input[type="file"] { max-width: 100%; font: inherit; font-size: .94rem; }
+.voice-backup-options .remove-voice { color: #924332; }
+select:focus-visible, input:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
 @media (max-width: 599px) {
   .vocabulary-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
   .vocabulary-card img { max-width: 76px; }

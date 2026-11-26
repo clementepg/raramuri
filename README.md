@@ -1,36 +1,39 @@
 # Rarámuri en familia
 
-An illustrated language bridge for Spanish-speaking families of Guachochi and children beginning to speak, approximately 12–24 months. A caregiver shares one picture and hears Rarámuri alongside one chosen language, then continues with real objects, gestures and conversation.
+A parent-led language bridge for Guachochi families and children beginning to speak, approximately 12–24 months. One picture remains on screen beside Rarámuri and one chosen companion language, then the family continues with a real object, gesture or conversation.
 
 ## Preview
 
 https://clementepg.github.io/raramuri/
 
-GitHub Pages publishes the root of `main`. Static HTML, CSS and JavaScript; no build, account, analytics or microphone access. To develop locally: `python -m http.server 8768` and open http://localhost:8768/.
+GitHub Pages serves the root of main. Static HTML/CSS/JavaScript; no build or accounts. Local preview: `python -m http.server 8768`, then http://localhost:8768/.
 
-## Current library
+## Everyday vocabulary
 
-13 picture concepts, 91 written forms and 36 genuine speaker recordings. Rarámuri stays visible; choose Spanish, English, French, Italian, German or Mandarin alongside it. The main view keeps one picture, paired words, Listen and Next; the thumbnail chooser lets families return to a familiar word. Tablet portrait uses a larger image and the space below for useful choices.
+50 starter concepts plus 4 preserved enrichment scenes, organized into 6 small groups: requests/connection, family, actions, everyday things, body/comfort and familiar surroundings. All 54 pictures have written Spanish, English, French, Italian, German and Mandarin forms (324 companion entries). This is a flexible editorial curriculum, not a developmental test or completion deadline.
 
-- Water, yes, no, eat, hello, ball, nose, dog, fresh corn, squash, sun, night and mouse.
-- Water has recordings in all seven languages. Every additional concept has Spanish and English recordings. New native recordings are available for sun and fresh corn; other native recordings remain pending.
-- Missing recordings are labelled honestly. No synthetic Rarámuri pronunciation is used. One Listen tap plays the available native recording, then the selected companion.
-- Mandarin yes/no cards are natural responses to an offer: 要 / 不要 (want / don't want). Context and pinyin appear under Help.
+25 Rarámuri source forms are included with exact references from Gabriela Caballero (2022), A grammar of Choguita Rarámuri, CC BY 4.0. The remaining 29 target expressions stay explicitly pending. Practical orthography and natural local expressions need community review. The app does not substitute an infinitive for a first-person request or their mother for Mom. A structured 54-row review sheet is in NATIVE_REVIEW.csv.
 
-The Family Guide proposes 50 useful concepts, beginning with requests, refusal, help and family connection, then everyday actions, objects, body/comfort and familiar surroundings. This is a curriculum proposal rather than a required word count or developmental test. Most of the 50-concept route still needs community translation and recording. The guide links ASHA, NIDCD and AAP/ASHA sources and encourages live parent–child interaction, including gestures and sound attempts.
+There are 102 genuine speaker recordings: 3 Rarámuri and 99 companion recordings. Canonical Spanish and English human-recording coverage is 42/50 each, plus the preserved enrichment recordings. When an exact companion recording is missing, a matching browser/device voice is offered and labelled Voz del dispositivo. Availability depends on the device and can require internet. Unavailable voices remain clearly marked; a wrong-language fallback is never used. Mandarin never falls back to a Cantonese zh-HK voice. Rarámuri is never synthesized.
 
-## Rarámuri evidence
+One Escuchar tap plays the available Rarámuri recording first, then the selected companion. A word highlight follows playback. Changing a word, group, language or dialog cancels queued playback.
 
-All 13 forms preserve the published transcription and reference in Gabriela Caballero (2022), *A grammar of Choguita Rarámuri*, CC BY 4.0. They are source forms, not a claim of standardized practical spelling or completed community validation. Kinship, body-part possessives and natural family expressions require appropriate context; the project does not manufacture bare forms by removing suffixes.
+## Voices of the family
 
-Book: https://langsci-press.org/catalog/book/324 . Native audio: https://zenodo.org/records/7268366 . Full collaborator, author, source and license attribution: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Curated lesson data and recording hashes: `bridge-data.js`.
+Choose a picture, open Ayuda and select Añadir una voz familiar. An adult who speaks Rarámuri can enter the natural expression and record up to 20 seconds, review it and save it in this browser. The microphone is requested only when Grabar is pressed. Closing the dialog, hiding the tab or reaching the time limit stops capture. These personal entries are labelled Voz familiar and are not presented as published source verification.
 
-Three native recordings are copied unchanged. New Spanish sources include varieties from Spain, Costa Rica and Colombia and are not collectively labelled Mexican Spanish. All audio is locally served; no speech service is called during playback.
+Family recordings stay in IndexedDB on this device; the app has no upload endpoint. Download a JSON backup from Guardar y recuperar copias to retain it or restore it on another device. Clearing browser data can remove local voices. Imported backups are validated before a single atomic database write. The app never asks a child to record.
 
-The ten new illustrations were generated with the built-in image tool. Original PNGs are saved locally in `output/imagegen/first-words/`; small WebP delivery versions are in the repository root. [Final image prompts and asset names](IMAGE_PROMPTS.md).
+The Family Guide includes a short explanation of family connection, intergenerational use, community knowledge and learning additional languages while Rarámuri remains part of everyday life. The wording is a project proposal for discussion with families, grounded in UNESCO and INALI sources linked in the guide. It does not claim that identity depends on fluency or promise IQ, employment or school-performance gains.
 
-## Offline and checks
+## Evidence, artwork and privacy
 
-The service worker caches the lesson images and recordings after loading, with byte-range responses for tablet audio. The original mockup PDF remains available from Help and is not precached.
+Book: https://langsci-press.org/catalog/book/324 . Published native recordings: https://zenodo.org/records/7268366 . Per-word references and recording SHA256s: bridge-data.js. Complete author/source/licence attribution: THIRD_PARTY_NOTICES.md.
 
-Run `node --test audio-range.test.cjs vocabulary.test.cjs`. The checks cover offline audio ranges and lesson media/source/hash integrity. Responsive sizes, paired playback, library navigation and the parent guide are also checked in the browser.
+The 41 new illustrations use the built-in image tool; originals are stored locally under output/imagegen/everyday-v7. WebP delivery assets are in the root. Final prompts and asset names are in IMAGE_PROMPTS.md. Older illustrations and the mockup PDF remain intact. No analytics or child accounts.
+
+## Offline and validation
+
+The service worker caches the illustrated recording pack and supports byte-range audio playback. Device speech depends on the browser and is not a bundled offline recording. The PDF is not precached. Family voices use local browser storage and can play locally after recording/import.
+
+Run node --test audio-range.test.cjs vocabulary.test.cjs lesson-player.test.cjs family-voices.test.cjs. Tests cover media/source/hash integrity, 50 + 4 coverage, audio ranges, cancellation, native-speech exclusions, Mandarin voice matching, backup validation and microphone-permission races. Browser QA covers grouped navigation, image rendering, paired recorded/device playback, parent guidance and phone/tablet geometry. Actual microphone recording is left to an adult choosing to grant permission on their own device.

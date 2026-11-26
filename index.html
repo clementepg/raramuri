@@ -8,9 +8,12 @@
   <title>Agua · Rarámuri en familia</title>
   <link rel="icon" type="image/svg+xml" href="./icon.svg">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./styles.css?v=6">
-  <script defer src="./bridge-data.js?v=6"></script>
-  <script defer src="./app.js?v=6"></script>
+  <link rel="stylesheet" href="./styles.css?v=7">
+  <script defer src="./bridge-data.js?v=7"></script>
+  <script defer src="./lesson-player.js?v=7"></script>
+  <script defer src="./family-voices.js?v=7"></script>
+  <script defer src="./family-recorder.js?v=7"></script>
+  <script defer src="./app.js?v=7"></script>
 </head>
 <body>
   <a class="skip-link" id="skip-scene" href="#escena">Ir a la imagen</a>
@@ -22,7 +25,7 @@
   <main id="escena" tabindex="-1">
     <section class="lesson" aria-labelledby="native-word">
       <figure class="picture">
-        <img id="scene-image" src="./cup.png" alt="Una persona adulta muestra una taza a un niño pequeño." width="1254" height="1254" fetchpriority="high">
+        <img id="scene-image" src="./cup-family.webp" alt="Una persona adulta muestra una taza a un niño pequeño." width="768" height="768" fetchpriority="high">
       </figure>
       <div class="lesson-controls">
         <div class="word-pair">
@@ -64,6 +67,17 @@
         <h2 id="vocabulary-title">Palabras para compartir</h2>
         <button class="guide-button" id="open-guide" type="button">Guía familiar</button>
       </div>
+      <label class="topic-picker" for="topic-select">
+        <span>Elegir un grupo</span>
+        <select id="topic-select">
+          <option value="request">Para pedir y conectar</option>
+          <option value="family">Mi familia</option>
+          <option value="actions">Lo que hacemos</option>
+          <option value="objects">Cosas de cada día</option>
+          <option value="body">Mi cuerpo y cómo me siento</option>
+          <option value="outside">Lo que vemos cerca</option>
+        </select>
+      </label>
       <div class="vocabulary-grid" id="vocabulary-grid"></div>
     </section>
     <audio id="native-audio" preload="metadata" src="./water-choguita.wav"></audio>
@@ -77,6 +91,9 @@
     </div>
     <p class="parent-tip" id="parent-tip">Escuchen juntos. Después, señala el agua en una taza de casa.</p>
     <p>Toca Escuchar para oír las grabaciones disponibles. Sigue su interés; no hace falta que repita.</p>
+    <label class="device-voice-option"><input id="device-voices" type="checkbox" checked> Usar voces del dispositivo cuando falte una grabación en el otro idioma.</label>
+    <p class="help-note">Se indican como «Voz del dispositivo». Su disponibilidad depende del navegador y pueden necesitar internet. Para rarámuri se usan únicamente voces de personas hablantes.</p>
+    <button class="family-voice-button" id="open-voice" type="button">Añadir una voz familiar</button>
     <details id="source-details">
       <summary>Fuentes y créditos</summary>
       <div class="source-copy">
@@ -87,8 +104,8 @@
         <div id="pair-credits"></div>
         <p id="transcription-note">Para rarámuri se conserva la transcripción de la fuente, con sus marcas. La escritura práctica se revisará con hablantes de la comunidad.</p>
         <p>Gabriela Caballero (2022), <cite>A grammar of Choguita Rarámuri</cite>, en colaboración con Luz Elena León Ramírez, Sebastián Fuentes Holguín, Bertha Fuentes Loya y otras personas expertas de Choguita. CC BY 4.0.</p>
-        <p>Las voces son grabaciones de hablantes. Algunas palabras aún no tienen audio; se indican en la actividad.</p>
-        <p>Ilustraciones de personajes ficticios generadas por IA. No se solicitan cuentas ni se graba al niño.</p>
+        <p>Las grabaciones publicadas son de hablantes. Las voces sintéticas del dispositivo se identifican y solo se ofrecen para los idiomas acompañantes. Algunas palabras en rarámuri esperan revisión o grabación; se indican en la actividad.</p>
+        <p>Ilustraciones de personajes ficticios generadas por IA. No se solicitan cuentas. Grabar una voz adulta de la familia es opcional y se guarda en el dispositivo.</p>
         <ul>
           <li><a href="https://langsci-press.org/catalog/book/324" target="_blank" rel="noopener">Libro y créditos</a></li>
           <li><a href="https://zenodo.org/records/7268366" target="_blank" rel="noopener">Archivo de audio</a></li>
@@ -104,6 +121,24 @@
       <h2 id="guide-title">Sus primeras palabras</h2>
       <button class="close-button" id="close-guide" type="button" aria-label="Cerrar guía">×</button>
     </div>
+    <section class="why-language" aria-labelledby="why-title">
+      <h3 id="why-title">¿Qué gana mi hija o hijo con el rarámuri?</h3>
+      <p><strong>Cercanía con su familia.</strong> Una manera de conversar con abuelas y abuelos, escuchar historias, cantar y compartir el humor y las palabras de casa.</p>
+      <p><strong>Una conexión con su comunidad.</strong> En una lengua también se comparten nombres de lugares, conocimientos y maneras de vivir juntos. Usarla al comer, jugar o cuidar a alguien le da un lugar en la vida de hoy.</p>
+      <h3>¿Y el español para la escuela y el trabajo?</h3>
+      <p>Es una preocupación válida. El proyecto propone aprender español y abrir caminos hacia otras lenguas mientras el rarámuri sigue presente en casa. Cada lengua puede ampliar las personas con quienes el niño conversa y las situaciones en que participa.</p>
+      <p><strong>Cada familia decide.</strong> No hace falta hablar perfectamente para empezar a aprender juntos. Quienes ya hablan rarámuri pueden compartir su forma de decir las cosas; quienes están empezando pueden acercarse a una persona hablante de confianza.</p>
+      <p class="help-note">Esta explicación es una propuesta del proyecto para conversar y revisar con las familias. La lengua y las voces de cada comunidad son el punto de partida.</p>
+      <details class="source-copy">
+        <summary>Fuentes sobre lengua y aprendizaje</summary>
+        <ul>
+          <li><a href="https://www.unesco.org/en/articles/education-multilingual-world-unesco-education-position-paper" target="_blank" rel="noopener">UNESCO: lengua materna y acceso a otras lenguas</a></li>
+          <li><a href="https://www.unesco.org/en/links/transmission" target="_blank" rel="noopener">UNESCO: transmisión entre generaciones y participación comunitaria</a></li>
+          <li><a href="https://www.inali.gob.mx/detalle/lengua-ralamuli-tarahumara" target="_blank" rel="noopener">INALI: variantes y transmisión del ralámuli / rarámuri</a></li>
+        </ul>
+      </details>
+    </section>
+    <h3>Palabras para vivir cada día</h3>
     <p>Una ruta de <strong>50 conceptos útiles</strong> para acompañar los primeros meses de habla, aproximadamente de 12 a 24 meses. Cada niña y niño tiene su ritmo: esta lista es una propuesta para la familia, no un examen ni una fecha límite.</p>
     <p class="guide-first">Empiecen con lo que quiere comunicar hoy: pedir algo, decir que no, buscar ayuda o llamar a alguien querido.</p>
     <section class="guide-group">
@@ -140,7 +175,7 @@
     <p>En español pueden modelar <strong>«más agua», «mamá ven», «quiero pelota» y «no quiero»</strong>. Son ejemplos para la persona adulta. Las expresiones naturales en rarámuri necesitan revisión con hablantes; no se construyen juntando traducciones sueltas.</p>
     <h3>Escuchar, mirar y vivirlo</h3>
     <p>La pantalla sirve como apoyo para la persona adulta. Miren una imagen o escuchen una voz y después usen un objeto real, un gesto o un juego juntos. Acepten señas, sonidos e intentos de palabra; no hace falta repetir ni acertar. Hablen también en las lenguas que la familia usa con confianza.</p>
-    <p class="guide-status">La actividad incluye 13 imágenes con formas publicadas de Choguita. Las demás palabras de esta ruta esperan traducción y revisión comunitaria. Las grabaciones disponibles se indican en cada imagen.</p>
+    <p class="guide-status">La actividad incorpora estos 50 conceptos y conserva cuatro imágenes adicionales. Las formas publicadas en rarámuri mantienen su fuente; las expresiones que aún necesitan revisión se indican. En Ayuda puedes añadir la palabra y la voz de una persona adulta de tu familia.</p>
     <details class="source-copy">
       <summary>En qué se basa esta guía</summary>
       <p>La selección de 50 conceptos es una propuesta de este proyecto, basada en funciones comunicativas y rutinas. Las fuentes describen variación individual, gestos, vocabulario cotidiano y combinaciones de palabras.</p>
@@ -150,6 +185,33 @@
         <li><a href="https://www.nidcd.nih.gov/health/speech-and-language" target="_blank" rel="noopener">NIDCD: desarrollo del habla y del lenguaje</a></li>
         <li><a href="https://www.healthychildren.org/English/ages-stages/gradeschool/school/Pages/7-Myths-Facts-Bilingual-Children-Learning-Language.aspx" target="_blank" rel="noopener">AAP y ASHA: crecer con varias lenguas</a></li>
       </ul>
+    </details>
+  </dialog>
+
+  <dialog class="help-dialog voice-dialog" id="voice-dialog" aria-labelledby="voice-title">
+    <div class="help-heading">
+      <h2 id="voice-title">La voz de tu familia</h2>
+      <button class="close-button" id="close-voice" type="button" aria-label="Cerrar grabación">×</button>
+    </div>
+    <p class="record-concept" id="voice-concept"></p>
+    <p id="voice-context"></p>
+    <p>Graba a una <strong>persona adulta que hable rarámuri</strong>. Usa la palabra o expresión natural de tu comunidad para esta situación.</p>
+    <label class="voice-text-label" for="voice-text">Palabra o expresión en rarámuri</label>
+    <input id="voice-text" type="text" maxlength="120" autocomplete="off" spellcheck="false">
+    <div class="record-actions">
+      <button id="voice-start" type="button">Grabar</button>
+      <button id="voice-stop" type="button" disabled>Terminar</button>
+    </div>
+    <audio id="voice-preview" controls hidden></audio>
+    <p id="voice-message" role="status"></p>
+    <button class="family-voice-button" id="voice-save" type="button" disabled>Guardar voz familiar</button>
+    <p class="help-note">Tu grabación se queda en este navegador y no se publica. Descarga una copia para conservarla o llevarla a otro dispositivo. Si borras los datos del navegador, necesitarás esa copia para recuperarla.</p>
+    <details class="voice-backup-options">
+      <summary>Guardar y recuperar copias</summary>
+      <button id="voice-backup" type="button">Descargar mis voces</button>
+      <label class="voice-import-label" for="voice-import">Recuperar una copia de voces</label>
+      <input id="voice-import" type="file" accept="application/json,.json">
+      <button class="remove-voice" id="voice-remove" type="button" hidden>Quitar esta voz del dispositivo</button>
     </details>
   </dialog>
 </body>
