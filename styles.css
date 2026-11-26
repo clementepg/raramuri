@@ -81,3 +81,24 @@ body:has(dialog[open]) { overflow: hidden; }
   .listen-button, .next-button { transition: background-color .15s; }
   .next-button:hover { background: #e0eee6; }
 }
+
+.language-picker { display: block; justify-self: center; max-width: 100%; }
+.language-picker select { min-width: 145px; max-width: 100%; min-height: 44px; padding: 9px 16px; border: 1.5px solid #b6c7bc; border-radius: 999px; background: var(--paper); color: var(--ink); font: inherit; font-size: 1rem; cursor: pointer; }
+.language-picker select:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; }
+.word { min-height: 80px; display: flex; flex-direction: column; justify-content: center; }
+.word h1 { font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
+@media (max-height: 650px) and (max-width: 799px) { .word { min-height: 64px; } }
+
+.word-pair { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 10px; align-items: start; }
+.word-cell { min-width: 0; min-height: 106px; border-radius: 16px; padding: 0 6px 9px; }
+.word-cell.is-speaking { background: #e0eee6; }
+.word-language { min-height: 44px; display: flex; align-items: center; justify-content: center; margin: 0 0 5px; font-size: 1rem; }
+.word-cell h1, .word-cell h2 { font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; font-size: clamp(1.45rem,6vw,2rem); font-weight: 600; line-height: 1.25; letter-spacing: -.025em; overflow-wrap: anywhere; margin: 0; }
+.word-cell .language-picker { margin-bottom: 5px; }
+.word-cell .language-picker select { width: 100%; min-width: 0; padding: 8px 6px; font-size: .94rem; }
+.word-status { font-size: .88rem; color: #66746c; margin: 6px 0 0; }
+.credit-link { display: block; margin: 8px 0; }
+@media (max-height:650px) and (max-width:799px) {
+  .word-cell { min-height: 95px; }
+  .word-language { font-size: .94rem; }
+}

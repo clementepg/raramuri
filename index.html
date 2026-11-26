@@ -4,30 +4,50 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fff9ed">
-  <meta name="description" content="Mira, escucha y comparte el rarámuri en familia.">
+  <meta name="description" content="Explora el rarámuri junto a otras lenguas con imágenes y voces, en familia.">
   <title>Agua · Rarámuri en familia</title>
   <link rel="icon" type="image/svg+xml" href="./icon.svg">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./styles.css?v=4">
-  <script defer src="./app.js?v=4"></script>
+  <link rel="stylesheet" href="./styles.css?v=5">
+  <script defer src="./bridge-data.js?v=5"></script>
+  <script defer src="./app.js?v=5"></script>
 </head>
 <body>
-  <a class="skip-link" href="#escena">Ir a la imagen</a>
+  <a class="skip-link" id="skip-scene" href="#escena">Ir a la imagen</a>
   <header class="app-header">
     <a class="brand" href="#agua">Rarámuri <span>en familia</span></a>
     <button class="help-button" id="open-help" type="button">Ayuda</button>
   </header>
 
-  <main id="escena">
+  <main id="escena" tabindex="-1">
     <section class="lesson" aria-labelledby="native-word">
       <figure class="picture">
         <img id="scene-image" src="./cup.png" alt="Una persona adulta muestra una taza a un niño pequeño." width="1254" height="1254" fetchpriority="high">
       </figure>
       <div class="lesson-controls">
-        <div class="word">
-          <h1 id="native-word" lang="tar">baʔˈwí</h1>
-          <p id="spanish-meaning">Agua</p>
+        <div class="word-pair">
+          <section class="word-cell" id="raramuri-cell" aria-label="Rarámuri">
+            <p class="word-language">Rarámuri</p>
+            <h1 id="native-word" lang="tar">baʔˈwí</h1>
+            <p class="word-status" id="raramuri-status" hidden>Sin audio</p>
+          </section>
+          <section class="word-cell" id="other-cell" aria-label="Español">
+            <label class="language-picker">
+              <span class="sr-only">Otro idioma para aprender junto al rarámuri</span>
+              <select id="language-select" aria-label="Otro idioma">
+                <option value="es">Español</option>
+                <option value="en">Inglés</option>
+                <option value="fr">Francés</option>
+                <option value="it">Italiano</option>
+                <option value="de">Alemán</option>
+                <option value="zh">Mandarín</option>
+              </select>
+            </label>
+            <h2 id="other-word" lang="es-MX">Agua</h2>
+            <p class="word-status" id="other-status" hidden>Sin audio</p>
+          </section>
         </div>
+        <p id="spanish-meaning" class="sr-only">Agua</p>
         <div class="audio-area">
           <button class="listen-button" id="listen-word" type="button" aria-label="Escuchar agua en rarámuri">
             <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M5 12h5l7-6v20l-7-6H5z" fill="currentColor"/><path d="M22 10c4 3 4 9 0 12m4-16c7 5 7 15 0 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
@@ -49,15 +69,18 @@
       <button class="close-button" id="close-help" type="button" aria-label="Cerrar ayuda">×</button>
     </div>
     <p class="parent-tip" id="parent-tip">Escuchen juntos. Después, señala el agua en una taza de casa.</p>
-    <p>Sigue su interés. No hace falta que repita.</p>
+    <p>Toca Escuchar para oír las grabaciones disponibles. Sigue su interés; no hace falta que repita.</p>
     <details id="source-details">
       <summary>Fuentes y créditos</summary>
       <div class="source-copy">
-        <p>Una ayuda para familias de Guachochi con niñas y niños de 12 a 24 meses. Este demo usa material de Choguita.</p>
+        <p>Una ayuda para familias de Guachochi con niñas y niños de 12 a 24 meses. Rarámuri es el punto de partida para explorar otras lenguas en familia.</p>
         <p id="word-reference"></p>
-        <p>Se conserva la transcripción de la fuente, con sus marcas. La escritura práctica se revisará con hablantes de la comunidad.</p>
+        <p id="other-reference"></p>
+        <p id="romanization" hidden></p>
+        <div id="pair-credits"></div>
+        <p id="transcription-note">Para rarámuri se conserva la transcripción de la fuente, con sus marcas. La escritura práctica se revisará con hablantes de la comunidad.</p>
         <p>Gabriela Caballero (2022), <cite>A grammar of Choguita Rarámuri</cite>, en colaboración con Luz Elena León Ramírez, Sebastián Fuentes Holguín, Bertha Fuentes Loya y otras personas expertas de Choguita. CC BY 4.0.</p>
-        <p>Audio de Agua: Jesusita Loya Guerra; Caballero (2022), archivo co1234[06_044-06_053].wav, p. 202, ejemplo (2e). CC BY 4.0. Sin modificaciones.</p>
+        <p>Las voces son grabaciones de hablantes. Algunas palabras aún no tienen audio; se indican en la actividad.</p>
         <p>Ilustraciones de personajes ficticios generadas por IA. No se solicitan cuentas ni se graba al niño.</p>
         <ul>
           <li><a href="https://langsci-press.org/catalog/book/324" target="_blank" rel="noopener">Libro y créditos</a></li>
