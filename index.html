@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff9ed">
+  <meta name="description" content="Un prototipo ilustrado para compartir el rarámuri en familia, con niñas y niños de 12 a 24 meses de familias de Guachochi.">
+  <title>Rarámuri en familia</title>
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#escena">Ir a la escena</a>
+  <header class="site-header">
+    <a class="brand" href="#saludar" aria-label="Rarámuri en familia, inicio">
+      <img src="./icon.svg" alt="" width="44" height="44">
+      <span>Rarámuri <span class="brand-light">en familia</span></span>
+    </a>
+    <nav class="header-links" aria-label="Información">
+      <button class="text-button" id="family-guide" type="button">Para familias</button>
+      <a class="pdf-link" href="./raramuri-en-familia-mockup.pdf" target="_blank" rel="noopener">Ver el PDF <span class="sr-only">(abre otra pestaña)</span></a>
+    </nav>
+  </header>
+
+  <main id="escena">
+    <div class="intro-row">
+      <p class="eyebrow">PEQUEÑOS MOMENTOS, UNA LENGUA COMPARTIDA</p>
+      <p class="audience">Guachochi <span aria-hidden="true">·</span> 12 a 24 meses <span aria-hidden="true">·</span> Con una persona adulta</p>
+    </div>
+    <section class="scene-layout" aria-labelledby="scene-title">
+      <div class="picture-area">
+        <figure class="picture-frame">
+          <img id="scene-image" src="./greeting.png" alt="Una persona adulta y un niño pequeño se miran y saludan con la mano." width="1254" height="1254" fetchpriority="high">
+          <figcaption class="picture-caption"><span class="little-sun" aria-hidden="true"></span><span id="scene-caption">Una mirada, un gesto, un saludo.</span></figcaption>
+        </figure>
+      </div>
+      <div class="scene-copy">
+        <p class="small-label">UN RATITO JUNTOS</p>
+        <h1 id="scene-title">Nos saludamos</h1>
+        <p class="scene-description" id="scene-description">Miremos la imagen y compartamos un saludo a nuestro ritmo.</p>
+
+        <section class="language-card" aria-label="Palabra en rarámuri">
+          <p class="small-label">RARÁMURI DE CHOGUITA</p>
+          <p class="native-word" id="native-word" lang="tar">ˈkuíra (ba)</p>
+          <p class="spanish-meaning" id="spanish-meaning">Hola</p>
+          <button class="text-button source-button" id="word-source" type="button">Transcripción de la fuente · Ver referencia</button>
+        </section>
+        <div class="voice-box">
+          <div class="voice-heading">
+            <span class="voice-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M5 12h5l7-6v20l-7-6H5z" fill="currentColor"/><path d="M22 10c4 3 4 9 0 12m4-16c7 5 7 15 0 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+            <div><p class="voice-title">Voz en rarámuri</p><p class="voice-status" id="voice-status">Grabación pendiente para este saludo</p></div>
+          </div>
+          <p class="voice-note" id="voice-note">La palabra está documentada en la fuente. La escena Agua ya incluye una grabación de una hablante de Choguita.</p>
+          <audio id="native-audio" preload="none"></audio>
+          <button class="audio-button" id="listen-word" type="button" hidden>Escuchar en rarámuri</button>
+          <p class="sr-only" id="audio-announcement" aria-live="polite"></p>
+        </div>
+
+        <button class="primary-button" id="play-together" type="button">Ahora, juntos</button>
+        <details class="caregiver-guide" open>
+          <summary>Cómo acompañar este momento</summary>
+          <ol id="scene-steps">
+            <li>Miren la imagen y acompaña el saludo con un gesto.</li>
+            <li>Si conoces una expresión de tu comunidad, úsala.</li>
+            <li>Responde a sus miradas, gestos o sonidos. No hace falta que repita.</li>
+          </ol>
+        </details>
+      </div>
+    </section>
+
+    <section class="routine-picker" aria-labelledby="routine-heading">
+      <div class="routine-title-row"><h2 id="routine-heading">¿Qué momento compartimos?</h2><span>A su ritmo, cuando quieran.</span></div>
+      <div class="routine-buttons" role="group" aria-label="Elegir una escena">
+        <button type="button" class="routine-button is-active" data-scene="saludar" aria-pressed="true"><img src="./greeting.png" alt="" width="104" height="104"><span><strong>Nos saludamos</strong><small>Miradas y gestos</small></span><span class="selected-mark" aria-hidden="true">✓</span></button>
+        <button type="button" class="routine-button" data-scene="jugar" aria-pressed="false"><img src="./play-ball.png" alt="" width="104" height="104" loading="lazy"><span><strong>La pelota</strong><small>Un juego compartido</small></span><span class="selected-mark" aria-hidden="true">✓</span></button>
+        <button type="button" class="routine-button" data-scene="taza" aria-pressed="false"><img src="./cup.png" alt="" width="104" height="104" loading="lazy"><span><strong>Agua</strong><small>Con voz de Choguita</small></span><span class="selected-mark" aria-hidden="true">✓</span></button>
+      </div>
+      <p class="sr-only" id="scene-announcement" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer"><p>Una ayuda infantil para compartir en familia.</p><p>Boceto ilustrado <span aria-hidden="true">·</span> Personajes ficticios generados por IA <span aria-hidden="true">·</span> <button type="button" class="text-button" id="about-project">Sobre la propuesta</button></p></footer>
+
+  <dialog id="together-dialog" class="together-dialog" aria-labelledby="together-title">
+    <button class="close-button" type="button" data-close aria-label="Cerrar">×</button>
+    <div class="together-layout"><img id="together-image" src="./greeting.png" alt="" width="1254" height="1254"><div class="together-copy"><p class="eyebrow">AHORA, JUNTOS</p><h2 id="together-title">Dejamos el teléfono a un lado y compartimos.</h2><p id="together-prompt">Saluda con un gesto y responde a lo que mire o haga tu niña o niño.</p><p class="gentle-note">Los gestos y los sonidos también forman parte del encuentro. No hace falta que repita.</p><button class="primary-button" type="button" data-close>Volver a las escenas</button></div></div>
+  </dialog>
+
+  <dialog id="information-dialog" class="information-dialog" aria-labelledby="information-title">
+    <button class="close-button" type="button" data-close aria-label="Cerrar">×</button>
+    <p class="eyebrow">RARÁMURI EN FAMILIA</p><h2 id="information-title">Aprendemos en compañía</h2>
+    <div id="information-content"></div>
+    <button class="primary-button" type="button" data-close>Volver a la escena</button>
+  </dialog>
+</body>
+</html>

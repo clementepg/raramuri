@@ -1,0 +1,12 @@
+{
+  "name": "Rarámuri en familia",
+  "short_name": "En familia",
+  "lang": "es-MX",
+  "description": "Una ayuda infantil ilustrada para compartir en familia.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff9ed",
+  "theme_color": "#fff9ed",
+  "icons": [{"src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]
+}
