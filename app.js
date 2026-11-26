@@ -3,6 +3,7 @@ const byId = id => document.getElementById(id);
 const audio = byId('native-audio');
 const listenButton = byId('listen-word');
 const helpDialog = byId('help-dialog');
+const guideDialog = byId('guide-dialog');
 const languages = Object.create(null);
 const scenes = Object.create(null);
 data.languages.forEach(language => { languages[language.id] = language; });
@@ -89,6 +90,9 @@ function renderState(sceneId, languageId, announce = false) {
   listenButton.setAttribute('aria-label','Escuchar ' + scene.spanish.toLowerCase() + ' en ' + spokenLanguages.join(' y '));
   byId('audio-error').hidden = true;
   audio.removeAttribute('src'); audio.load();
+  document.querySelectorAll('.vocabulary-card').forEach(button => {
+    button.setAttribute('aria-pressed',String(button.dataset.scene === sceneId));
+  });
   document.title = scene.spanish + ' · Rarámuri + ' + language.label;
   if (announce) byId('announcement').textContent = scene.spanish + '. Rarámuri y ' + language.label + '.';
 }
@@ -155,6 +159,38 @@ helpDialog.addEventListener('click', event => {
   const b = helpDialog.getBoundingClientRect();
   if (event.clientX < b.left || event.clientX > b.right || event.clientY < b.top || event.clientY > b.bottom) {
     if (typeof helpDialog.close === 'function') helpDialog.close(); else helpDialog.removeAttribute('open');
+  }
+});
+data.scenes.forEach(scene => {
+  const button = document.createElement('button');
+  button.type = 'button'; button.className = 'vocabulary-card';
+  button.dataset.scene = scene.id;
+  button.setAttribute('aria-label','Ver ' + scene.spanish.toLowerCase());
+  const image = document.createElement('img');
+  image.src = './' + scene.image; image.alt = ''; image.loading = 'lazy';
+  image.width = 96; image.height = 96;
+  const label = document.createElement('span'); label.textContent = scene.spanish;
+  button.append(image,label);
+  button.addEventListener('click', () => {
+    navigate(scene.id,currentLanguage);
+    byId('escena').focus({preventScroll:true});
+    byId('escena').scrollIntoView({block:'start'});
+  });
+  byId('vocabulary-grid').append(button);
+});
+byId('open-guide').addEventListener('click', () => {
+  stopAudio();
+  if (typeof guideDialog.showModal === 'function') guideDialog.showModal(); else guideDialog.setAttribute('open','');
+  guideDialog.scrollTop = 0;
+});
+byId('close-guide').addEventListener('click', () => {
+  if (typeof guideDialog.close === 'function') guideDialog.close(); else guideDialog.removeAttribute('open');
+});
+guideDialog.addEventListener('click', event => {
+  if (event.target !== guideDialog) return;
+  const b = guideDialog.getBoundingClientRect();
+  if (event.clientX < b.left || event.clientX > b.right || event.clientY < b.top || event.clientY > b.bottom) {
+    if (typeof guideDialog.close === 'function') guideDialog.close(); else guideDialog.removeAttribute('open');
   }
 });
 const initialState = stateFromLocation();

@@ -1,37 +1,36 @@
 # Rarámuri en familia
 
-Illustrated mobile and tablet test preview for Spanish-speaking families of Guachochi with children aged 12–24 months. An adult accompanies picture looking, listening and shared real-world play.
+An illustrated language bridge for Spanish-speaking families of Guachochi and children beginning to speak, approximately 12–24 months. A caregiver shares one picture and hears Rarámuri alongside one chosen language, then continues with real objects, gestures and conversation.
 
-## Test website
+## Preview
 
 https://clementepg.github.io/raramuri/
 
-Static HTML, CSS and JavaScript. Publish from the root of the main branch using GitHub Pages. To develop locally, run `python -m http.server 8765` in this repository and open http://localhost:8765/ .
+GitHub Pages publishes the root of `main`. Static HTML, CSS and JavaScript; no build, account, analytics or microphone access. To develop locally: `python -m http.server 8768` and open http://localhost:8768/.
 
-## Actual Rarámuri content
+## Current library
 
-Three exact published Choguita source forms are included, labeled as source transcription:
+13 picture concepts, 91 written forms and 36 genuine speaker recordings. Rarámuri stays visible; choose Spanish, English, French, Italian, German or Mandarin alongside it. The main view keeps one picture, paired words, Listen and Next; the thumbnail chooser lets families return to a familiar word. Tablet portrait uses a larger image and the space below for useful choices.
 
-- ˈkuíra (ba) — hola, Caballero (2022), p. 387, (41b).
-- peˈlôta — pelota, Caballero (2022), p. 608, (7b).
-- baʔˈwí — agua, Caballero (2022), p. 202, (2e).
+- Water, yes, no, eat, hello, ball, nose, dog, fresh corn, squash, sun, night and mouse.
+- Water has recordings in all seven languages. Every additional concept has Spanish and English recordings. New native recordings are available for sun and fresh corn; other native recordings remain pending.
+- Missing recordings are labelled honestly. No synthetic Rarámuri pronunciation is used. One Listen tap plays the available native recording, then the selected companion.
+- Mandarin yes/no cards are natural responses to an offer: 要 / 不要 (want / don't want). Context and pinyin appear under Help.
 
-The Agua scene plays an unaltered recording by Jesusita Loya Guerra from the grammar's companion audio, CC BY 4.0. Rarámuri greeting and ball audio are not supplied. No synthetic native speech is used.
+The Family Guide proposes 50 useful concepts, beginning with requests, refusal, help and family connection, then everyday actions, objects, body/comfort and familiar surroundings. This is a curriculum proposal rather than a required word count or developmental test. Most of the 50-concept route still needs community translation and recording. The guide links ASHA, NIDCD and AAP/ASHA sources and encourages live parent–child interaction, including gestures and sound attempts.
 
-See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for complete book, collaborator, audio and license attribution. Source transcription is preserved rather than presented as a standardized practical spelling. Further teaching content and practical spelling should be reviewed with participating speakers.
+## Rarámuri evidence
 
-## Included
+All 13 forms preserve the published transcription and reference in Gabriela Caballero (2022), *A grammar of Choguita Rarámuri*, CC BY 4.0. They are source forms, not a claim of standardized practical spelling or completed community validation. Kinship, body-part possessives and natural family expressions require appropriate context; the project does not manufacture bare forms by removing suffixes.
 
-The family view opens directly on Agua, the scene with a speaker recording. It shows one picture, the Rarámuri word, its Spanish meaning, an Escuchar button and an Otra imagen button. Another tap cycles to the next scene. The paired language selector keeps Rarámuri beside the family’s chosen companion language. Scenes without recordings say Todavía sin audio. Short parent guidance is behind Ayuda; sources, credits and the original PDF are inside a collapsed section there.
+Book: https://langsci-press.org/catalog/book/324 . Native audio: https://zenodo.org/records/7268366 . Full collaborator, author, source and license attribution: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Curated lesson data and recording hashes: `bridge-data.js`.
 
-Three original fictional family illustrations, source references, native water audio and the initial six-page visual mockup PDF are included. Application assets are cached for offline use after loading; the PDF is not precached. No child accounts, analytics or microphone recording.
+Three native recordings are copied unchanged. New Spanish sources include varieties from Spain, Costa Rica and Colombia and are not collectively labelled Mexican Spanish. All audio is locally served; no speech service is called during playback.
 
-## Family language bridge
+The ten new illustrations were generated with the built-in image tool. Original PNGs are saved locally in `output/imagegen/first-words/`; small WebP delivery versions are in the repository root. [Final image prompts and asset names](IMAGE_PROMPTS.md).
 
-The same three pictures now support Rarámuri, Spanish, English, French, Italian, German and Mandarin. Rarámuri is always visible alongside one chosen language. Spanish is the starting companion language. One Escuchar button plays Rarámuri first, then the chosen language, while the same picture stays in place; the parent guidance remains in Spanish.
+## Offline and checks
 
-There are 21 written forms and 14 real speaker recordings. Agua/Water is playable in all seven languages. Other scenes explicitly say when a recording is unavailable. Mandarin uses Chinese characters; pinyin is available under Ayuda. No synthetic pronunciation is used.
+The service worker caches the lesson images and recordings after loading, with byte-range responses for tablet audio. The original mockup PDF remains available from Help and is not precached.
 
-Curated vocabulary and per-recording source/author/license details are in `bridge-data.js`; full media credits are in `THIRD_PARTY_NOTICES.md`. The MP3 recordings are Wikimedia-provided transcodes, copied without further edits. The app uses only local static assets while playing. Language and picture choices can be shared in the URL, for example `?lang=en#agua`.
-
-The service worker caches the picture and audio pack and supports byte-range audio responses for tablet playback. Run `node --test audio-range.test.cjs` to check cached audio range behavior.
+Run `node --test audio-range.test.cjs vocabulary.test.cjs`. The checks cover offline audio ranges and lesson media/source/hash integrity. Responsive sizes, paired playback, library navigation and the parent guide are also checked in the browser.

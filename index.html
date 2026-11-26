@@ -8,9 +8,9 @@
   <title>Agua · Rarámuri en familia</title>
   <link rel="icon" type="image/svg+xml" href="./icon.svg">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./styles.css?v=5">
-  <script defer src="./bridge-data.js?v=5"></script>
-  <script defer src="./app.js?v=5"></script>
+  <link rel="stylesheet" href="./styles.css?v=6">
+  <script defer src="./bridge-data.js?v=6"></script>
+  <script defer src="./app.js?v=6"></script>
 </head>
 <body>
   <a class="skip-link" id="skip-scene" href="#escena">Ir a la imagen</a>
@@ -59,6 +59,13 @@
         <button class="next-button" id="next-scene" type="button">Otra imagen</button>
       </div>
     </section>
+    <section class="vocabulary-section" aria-labelledby="vocabulary-title">
+      <div class="vocabulary-heading">
+        <h2 id="vocabulary-title">Palabras para compartir</h2>
+        <button class="guide-button" id="open-guide" type="button">Guía familiar</button>
+      </div>
+      <div class="vocabulary-grid" id="vocabulary-grid"></div>
+    </section>
     <audio id="native-audio" preload="metadata" src="./water-choguita.wav"></audio>
     <p class="sr-only" id="announcement" aria-live="polite"></p>
   </main>
@@ -90,6 +97,59 @@
           <li><a href="./raramuri-en-familia-mockup.pdf" target="_blank" rel="noopener">Boceto en PDF</a></li>
         </ul>
       </div>
+    </details>
+  </dialog>
+  <dialog class="help-dialog vocabulary-guide" id="guide-dialog" aria-labelledby="guide-title">
+    <div class="help-heading">
+      <h2 id="guide-title">Sus primeras palabras</h2>
+      <button class="close-button" id="close-guide" type="button" aria-label="Cerrar guía">×</button>
+    </div>
+    <p>Una ruta de <strong>50 conceptos útiles</strong> para acompañar los primeros meses de habla, aproximadamente de 12 a 24 meses. Cada niña y niño tiene su ritmo: esta lista es una propuesta para la familia, no un examen ni una fecha límite.</p>
+    <p class="guide-first">Empiecen con lo que quiere comunicar hoy: pedir algo, decir que no, buscar ayuda o llamar a alguien querido.</p>
+    <section class="guide-group">
+      <h3>1. Pedir, elegir y conectar</h3>
+      <p>más · ayuda · no · para · terminé / ya · quiero · sí · dame · ven · abre · arriba / upa · abajo · mira · hola · adiós</p>
+      <p class="guide-example">Al ofrecer agua, espera un gesto, un sonido o una palabra. Responde a su intento. «Upa» significa aquí pedir que lo carguen.</p>
+    </section>
+    <section class="guide-group">
+      <h3>2. Mi familia</h3>
+      <p>mamá · papá · abuela · abuelo · bebé</p>
+      <p class="guide-example">Usen los nombres y las formas de llamar a las personas que el niño conoce.</p>
+    </section>
+    <section class="guide-group">
+      <h3>3. Lo que hacemos</h3>
+      <p>comer · beber · dormir · jugar · ir · lavar · abrazar</p>
+      <p class="guide-example">Nombren la acción mientras sucede, con una frase corta.</p>
+    </section>
+    <section class="guide-group">
+      <h3>4. Cosas de cada día</h3>
+      <p>agua · leche · comida · vaso · cuchara · pelota · libro · zapato · cobija</p>
+      <p class="guide-example">Cambien alimentos y objetos por los de su casa: elote, calabacita y sus comidas favoritas también cuentan.</p>
+    </section>
+    <section class="guide-group">
+      <h3>5. Mi cuerpo y cómo me siento</h3>
+      <p>mano · pie · boca · nariz · ojos · duele · cansancio</p>
+      <p class="guide-example">Señalen una parte del cuerpo. Pongan palabras a sus necesidades: «te duele», «tienes sueño».</p>
+    </section>
+    <section class="guide-group">
+      <h3>6. Lo que vemos cerca</h3>
+      <p>perro · gato · gallina · sol · lluvia · árbol · casa</p>
+      <p class="guide-example">Sigan su interés: una gallina del patio puede ser más cercana que un animal de un libro.</p>
+    </section>
+    <h3>Cuando empieza a juntar palabras</h3>
+    <p>En español pueden modelar <strong>«más agua», «mamá ven», «quiero pelota» y «no quiero»</strong>. Son ejemplos para la persona adulta. Las expresiones naturales en rarámuri necesitan revisión con hablantes; no se construyen juntando traducciones sueltas.</p>
+    <h3>Escuchar, mirar y vivirlo</h3>
+    <p>La pantalla sirve como apoyo para la persona adulta. Miren una imagen o escuchen una voz y después usen un objeto real, un gesto o un juego juntos. Acepten señas, sonidos e intentos de palabra; no hace falta repetir ni acertar. Hablen también en las lenguas que la familia usa con confianza.</p>
+    <p class="guide-status">La actividad incluye 13 imágenes con formas publicadas de Choguita. Las demás palabras de esta ruta esperan traducción y revisión comunitaria. Las grabaciones disponibles se indican en cada imagen.</p>
+    <details class="source-copy">
+      <summary>En qué se basa esta guía</summary>
+      <p>La selección de 50 conceptos es una propuesta de este proyecto, basada en funciones comunicativas y rutinas. Las fuentes describen variación individual, gestos, vocabulario cotidiano y combinaciones de palabras.</p>
+      <ul>
+        <li><a href="https://www.asha.org/public/developmental-milestones/communication-milestones-13-to-18-months/" target="_blank" rel="noopener">ASHA: comunicación de 13 a 18 meses</a></li>
+        <li><a href="https://www.asha.org/public/developmental-milestones/communication-milestones-19-to-24-months/" target="_blank" rel="noopener">ASHA: comunicación de 19 a 24 meses</a></li>
+        <li><a href="https://www.nidcd.nih.gov/health/speech-and-language" target="_blank" rel="noopener">NIDCD: desarrollo del habla y del lenguaje</a></li>
+        <li><a href="https://www.healthychildren.org/English/ages-stages/gradeschool/school/Pages/7-Myths-Facts-Bilingual-Children-Learning-Language.aspx" target="_blank" rel="noopener">AAP y ASHA: crecer con varias lenguas</a></li>
+      </ul>
     </details>
   </dialog>
 </body>

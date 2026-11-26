@@ -1,0 +1,22 @@
+# First words illustration assets
+
+Created with the built-in image generation tool. Each prompt produced one separate square illustration. Original PNG artwork is preserved locally under `output/imagegen/first-words/`. Delivery WebP variants (768px, quality90) are saved in this repository root. Existing illustrations were preserved.
+
+## Final prompt set
+
+Shared art direction for all except the separately specified dog picture: "Use case: illustration-story. Asset type: square children's vocabulary picture for ages 1–2. Style: warm hand-painted gouache and colored-pencil picture-book art, simple rounded shapes, earthy golden/terracotta/teal palette, softly painted texture. Large clear main subject, minimal scenery, everyday life in Chihuahua. No text, labels, numbers, logos, border, watermark or UI. One scene per image."
+
+The final subject instructions were:
+
+- **perro.webp** (`output/imagegen/first-words/perro.png`): "Create one square children's vocabulary picture for ages 1–2, depicting a single friendly small brown dog sitting in a simple sunlit courtyard. Warm hand-painted gouache and colored-pencil texture, rounded shapes, gentle expression, earthy golden/terracotta/teal palette, softly painted cream background. Clear large dog fills picture; minimal scenery. For Rarámuri families in Chihuahua, everyday contemporary setting, respectful and free of cultural caricature. No text, letters, labels, numbers, border, watermark or UI. One scene, one image."
+- **comer.webp** (`output/imagegen/first-words/comer.png`): "A toddler with medium brown skin and straight dark hair, wearing a simple teal shirt, eating from a small yellow bowl with a spoon, with a caring adult in a terracotta shirt beside them at the table. Clearly show the act of eating; food has a soft familiar texture, no whole nuts or choking hazards."
+- **nariz.webp** (`output/imagegen/first-words/nariz.png`): "A close-up of a cheerful toddler with medium brown skin and straight dark hair, gently touching their own nose with one index finger. Eyes and nose clearly drawn, finger rests on outside of nose, warm cream simple backdrop."
+- **elote.webp** (`output/imagegen/first-words/elote.png`): "A single large fresh ear of yellow sweetcorn (elote), its green husk partly peeled open to reveal the kernels. Show the whole cob clearly as an object to name, no person, no text, softly painted cream backdrop."
+- **calabacita.webp** (`output/imagegen/first-words/calabacita.png`): "One large fresh green zucchini squash (calabacita), with one whole squash and a single cut round slice beside it showing the pale inside. The whole vegetable remains the clear main subject, no people."
+- **sol.webp** (`output/imagegen/first-words/sol.png`): "The bright yellow sun with soft rays above a simple hillside with one tree, clear blue sky, cheerful quiet daytime. The sun is large, clear and central, no face on sun, no people."
+- **noche.webp** (`output/imagegen/first-words/noche.png`): "A quiet family house under a deep blue night sky with a crescent moon and a few stars; a warmly lit small window and peaceful dark hills. Clearly night, gentle bedtime mood, no people."
+- **raton.webp** (`output/imagegen/first-words/raton.png`): "A single small friendly gray field mouse with round ears and a thin tail, sitting beside one leaf, seen in close-up. Clearly a mouse and not a rat, real animal proportions simplified gently for a toddler."
+- **si.webp** (`output/imagegen/first-words/si.png`): "A cheerful toddler with medium brown skin and straight dark hair, reaching with both hands to ACCEPT a blue cup of water offered by a caring adult. The child leans toward the cup smiling, clearly eager to accept, adult's face relaxed. This illustrates saying yes to an offer, everyday contemporary family life."
+- **no.webp** (`output/imagegen/first-words/no.png`): "A toddler with medium brown skin and straight dark hair, gently declining a blue cup of water offered by a caring adult. The toddler's one open palm calmly faces the cup, body leans slightly away, lips closed and expression calmly decisive. The adult respectfully pauses and holds the cup back, warm relaxed face. This illustrates saying no or don't want; no distress or punishment."
+
+For the person scenes, the shared constraints additionally specified contemporary everyday life for families in Chihuahua, respectful representation, no cultural costume or caricature. The yes/no pair additionally forbids speech bubbles.
